@@ -1,16 +1,3 @@
-# Cyber Tools & Simulations – HTML/CSS/JS Based
-
-This repository also includes a collection of front-end projects built with HTML, CSS, and JavaScript, designed for educational and training purposes. These demos showcase practical applications such as virus scanning interfaces, hacking simulations, and mini games.
-
-## 📁 Project List
-
-- 🔐 **Virus Scanner UI** – A demo interface simulating virus scanning functionality.  
-- ⚠️ **Hacking Simulation Page** – Educational simulation for ethical hacking concepts.  
-- 🎮 **Mini JavaScript Games** – Interactive games built with JavaScript.  
-- 📊 **Data Visualizer** – Tools to visualize data graphically.  
-- 📱 **Responsive App Demo** – Demonstrations of responsive web app layouts.
-
----
 # 🌐 Cyber Education and Online Freelancing Center Tarash Website
 
 This is an HTML & CSS project designed by **Sowgato Kumar Bhowmik (সৌগত কুমার ভৌমিক)**, a multidisciplinary research scientist and founder of the **Cyber Education and Online Freelancing Center**, located in Tarash, Sirajganj, Bangladesh.
