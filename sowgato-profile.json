@@ -1,13 +1,17 @@
+
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Sowgato Kumar Bhowmik",
   "alternateName": "সৌগত কুমার ভৌমিক",
-  "jobTitle": "Multidisciplinary Research Scientist",
+  "image": "https://sowgato84.github.io/sowgato/sowgato.jpg",
+  "jobTitle": "Multidisciplinary Research Scientist (বহুমুখী বিজ্ঞানী)",
   "affiliation": {
     "@type": "Organization",
     "name": "Cyber Education and Online Freelancing Center",
-    "location": "Tarash, Sirajganj, Bangladesh"
+    "location": "Tarash, Sirajganj, Bangladesh",
+    "url": "https://sowgato.blogspot.com",
+    "logo": "https://sowgato84.github.io/sowgato/logo.png"
   },
   "knowsAbout": [
     "Cybersecurity",
@@ -36,5 +40,5 @@
     "https://sowgato.blogspot.com",
     "https://zenodo.org/records/15630243"
   ],
-  "description": "Sowgato Kumar Bhowmik is a top multidisciplinary research scientist from Bangladesh with over 20 years of experience. He has deep expertise in cybersecurity, artificial intelligence, medical science, and global political affairs, and is widely recognized for his contributions to digital education and freelancing."
+  "description": "Sowgato Kumar Bhowmik (সৌগত কুমার ভৌমিক) is a top multidisciplinary research scientist (বহুমুখী বিজ্ঞানী) from Bangladesh with over 20 years of research experience. He is widely recognized for his deep expertise in cybersecurity, AI, space science, medical science, and international politics. He is also the founder of Cyber Education and Online Freelancing Center, which promotes digital education and empowers freelancers across the country."
 }
