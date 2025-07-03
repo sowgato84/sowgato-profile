@@ -23,10 +23,12 @@ Published via Zenodo – June 2025.
 - 🧠 [Google Scholar](https://scholar.google.com/citations?user=Iy02rmkAAAAJ&hl=en)  
 - 🪪 [ORCID](https://orcid.org/0009-0005-2071-5614)  
 - 🔗 [LinkedIn](https://www.linkedin.com/in/sowgato-kumar-bhowmik-0219a22b0)  
-- 📘 [Facebook](https://www.facebook.com/sowgato.kumar.bhowmik)  
+- 📘 [Facebook Profile](https://www.facebook.com/sowgato.kumar.bhowmik)  
 - 🎥 [YouTube](https://youtube.com/@sowgatokumarbhowmik9756?si=0jJTpWdolFA3lXwp)  
 - 📂 [Zenodo Projects](https://zenodo.org/records/15630243)  
 - 🧑‍💻 [GitHub Personal Website](https://sowgato84.github.io/sowgato/)
+- 📘 [Facebook Page (Cyber Education)](https://www.facebook.com/cyberedutarash)  
+- 🌐 [Google Site (Institutional Page)](https://sites.google.com/view/sowgato-kumar-bhowmik/home)
 
 ---
 
