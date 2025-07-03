@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Word Builder Game</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h1 {
+      color: #4a148c;
+      font-size: 2em;
+      text-align: center;
+      margin-top: 5px;
+    }
+
+    #letter-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px;
+      max-width: 100%;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .letter {
+      background-color: #81d4fa;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 1.5em;
+      cursor: pointer;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    .letter:hover {
+      transform: scale(1.1);
+      background-color: #4fc3f7;
+    }
+
+    #word-box {
+      font-size: 1.5em;
+      min-height: 40px;
+      color: #1a237e;
+      background-color: #b39ddb; /* violet */
+      padding: 8px;
+      border-radius: 10px;
+      width: 90%;
+      text-align: center;
+      margin: 5px;
+    }
+
+    #status {
+      font-size: 1.2em;
+      color: #4a148c;
+      text-align: center;
+      margin-bottom: 5px;
+      height: 25px;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 1em;
+      margin: 5px;
+      background-color: #81c784;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #66bb6a;
+    }
+
+    footer {
+      font-size: 0.9em;
+      color: #ffffff;
+      background-color: #4a148c;
+      padding: 6px;
+      border-radius: 10px;
+      width: 100%;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Build Words from Letters!</h1>
+  <div id="letter-container"></div>
+  <div id="word-box"></div>
+  <div id="status"></div>
+  <div>
+    <button onclick="clearWord()">Clear Word</button>
+    <button onclick="checkWord()">Check Word</button>
+  </div>
+  <footer>Developed by <strong>Sowgato Kumar Bhowmik</strong>, <strong>Cyber Education and Online Freelancing Center</strong></footer>
+
+  <audio id="success-sound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+  <audio id="wrong-sound" src="https://www.soundjay.com/button/beep-10.wav"></audio>
+
+  <script>
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const letterContainer = document.getElementById('letter-container');
+    const wordBox = document.getElementById('word-box');
+    const statusBox = document.getElementById('status');
+    const successSound = document.getElementById('success-sound');
+    const wrongSound = document.getElementById('wrong-sound');
+
+    let currentWord = '';
+    const simpleWords = ['CAT', 'DOG', 'CAR', 'SUN', 'MOON', 'BOOK', 'APPLE', 'BALL'];
+
+    function generateLetters() {
+      letterContainer.innerHTML = '';
+      for (let i = 0; i < letters.length; i++) {
+        const char = letters[i];
+        const span = document.createElement('span');
+        span.textContent = char;
+        span.classList.add('letter');
+        span.addEventListener('click', () => {
+          currentWord += char;
+          wordBox.textContent = currentWord;
+          statusBox.textContent = '';
+        });
+        letterContainer.appendChild(span);
+      }
+    }
+
+    function clearWord() {
+      currentWord = '';
+      wordBox.textContent = '';
+      statusBox.textContent = '';
+    }
+
+    function checkWord() {
+      if (currentWord.length > 1) {
+        if (simpleWords.includes(currentWord)) {
+          statusBox.textContent = '✔️ OK!';
+          successSound.play();
+        } else {
+          statusBox.textContent = '❌ Wrong!';
+          wrongSound.play();
+        }
+      } else {
+        alert('Please select at least two letters to make a word.');
+      }
+    }
+
+    generateLetters();
+  </script>
+</body>
+</html>
