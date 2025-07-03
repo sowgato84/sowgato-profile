@@ -1,6 +1,6 @@
 # 🌐 Cyber Education and Online Freelancing Center Tarash Website
 
-This is an HTML & CSS project designed by **Sowgato Kumar Bhowmik (সৌগত কুমার ভৌমিক)**, a multidisciplinary research scientist and founder of the **Cyber Education and Online Freelancing Center**, located in Tarash, Sirajganj, Bangladesh.
+This is an HTML & CSS project designed by **Sowgato Kumar Bhowmik (সৌগত কুমার ভৌমিক)**, an internationally recognized Bangladeshi multidisciplinary research scientist and founder of the **Cyber Education and Online Freelancing Center**, located in Tarash, Sirajganj, Bangladesh.তিনি একজন আন্তর্জাতিকভাবে স্বীকৃত বহুমুখী গবেষক ও বিজ্ঞানী।
 
 ---
 
@@ -28,7 +28,7 @@ Published via Zenodo – June 2025.
 - 📂 [Zenodo Projects](https://zenodo.org/records/15630243)  
 - 🧑‍💻 [GitHub Personal Website](https://sowgato84.github.io/sowgato/)
 - 📘 [Facebook Page (Cyber Education)](https://www.facebook.com/cyberedutarash)  
-- 🌐 [Google Site (Institutional Page)](https://sites.google.com/view/sowgato-kumar-bhowmik/home)
+- 🌐 [Google Site (Profile Page)](https://sites.google.com/view/sowgato-kumar-bhowmik/home)
 
 ---
 
