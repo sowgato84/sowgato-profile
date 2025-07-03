@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Word Builder Game</title>
   <style>
     html, body {
@@ -60,7 +59,7 @@
       font-size: 1.5em;
       min-height: 40px;
       color: #1a237e;
-      background-color: #b39ddb; /* violet */
+      background-color: #b39ddb;
       padding: 8px;
       border-radius: 10px;
       width: 90%;
@@ -125,7 +124,6 @@
     const wrongSound = document.getElementById('wrong-sound');
 
     let currentWord = '';
-    const simpleWords = ['CAT', 'DOG', 'CAR', 'SUN', 'MOON', 'BOOK', 'APPLE', 'BALL'];
 
     function generateLetters() {
       letterContainer.innerHTML = '';
@@ -151,13 +149,23 @@
 
     function checkWord() {
       if (currentWord.length > 1) {
-        if (simpleWords.includes(currentWord)) {
-          statusBox.textContent = '✔️ OK!';
-          successSound.play();
-        } else {
-          statusBox.textContent = '❌ Wrong!';
-          wrongSound.play();
-        }
+        const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${currentWord.toLowerCase()}`;
+        fetch(url)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Word not found');
+            }
+            return response.json();
+          })
+          .then(data => {
+            statusBox.textContent = '✔️ OK!';
+            successSound.play();
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            statusBox.textContent = '❌ Wrong!';
+            wrongSound.play();
+          });
       } else {
         alert('Please select at least two letters to make a word.');
       }
