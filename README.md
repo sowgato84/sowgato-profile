@@ -28,7 +28,7 @@ Published via Zenodo – June 2025.
 - 📂 [Zenodo Projects](https://zenodo.org/records/15630243)  
 - 🧑‍💻 [GitHub Personal Website](https://sowgato84.github.io/sowgato/)
 - 📘 [Facebook Page (Cyber Education)](https://www.facebook.com/cyberedutarash)  
-- 🌐 [Google Site (Profile Page)](https://sites.google.com/view/sowgato-kumar-bhowmik/home)
+- 🌐 [Google Site (Profile Page)](https://sites.google.com/view/sowgato-kumar-bhowmik/)
 
 ---
 
