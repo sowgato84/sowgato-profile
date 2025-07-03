@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>English to Bengali Translator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #d7d2cc, #304352);
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1em;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #ffeb3b;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      background-color: #212121;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔤 English to Bengali Translator</h1>
+  <input type="text" id="inputWord" placeholder="Enter English word" />
+  <br>
+  <button onclick="translate()">Translate</button>
+  <p id="output">Translation will appear here...</p>
+
+  <footer>
+    Developed by <strong>Sowgato Kumar Bhowmik</strong>,<br>
+    <em>Multidisciplinary Research Scientist</em><br>
+    Founder of <strong>Cyber Education and Online Freelancing Center</strong>, Tarash, Sirajganj, Bangladesh
+  </footer>
+
+  <script>
+    function translate() {
+      const word = document.getElementById("inputWord").value.trim();
+      if (!word) {
+        document.getElementById("output").innerText = "Please enter a word.";
+        return;
+      }
+
+      fetch("https://libretranslate.de/translate", {
+        method: "POST",
+        body: JSON.stringify({
+          q: word,
+          source: "en",
+          target: "bn",
+          format: "text"
+        }),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("output").innerText = data.translatedText;
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById("output").innerText = "❌ Translation failed.";
+      });
+    }
+  </script>
+</body>
+</html>
