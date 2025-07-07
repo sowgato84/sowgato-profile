@@ -1,6 +1,6 @@
-# 🌐 Cyber Education and Online Freelancing Center Tarash Website
+# 🌐 Cyber Education and Online Freelancing Center Website
 
-This is an HTML & CSS project designed by **Sowgato Kumar Bhowmik (সৌগত কুমার ভৌমিক)**, an internationally recognized Bangladeshi multidisciplinary research scientist and founder of the **Cyber Education and Online Freelancing Center**, located in Tarash, Sirajganj, Bangladesh.তিনি একজন আন্তর্জাতিকভাবে স্বীকৃত বহুমুখী গবেষক ও বিজ্ঞানী।
+This is an HTML & CSS project designed by **Sowgato Kumar Bhowmik (সৌগত কুমার ভৌমিক)**, an internationally recognized Bangladeshi international research scientist and founder of the **Cyber Education and Online Freelancing Center**, located in Tarash, Sirajganj, Bangladesh.তিনি একজন আন্তর্জাতিকভাবে স্বীকৃত গবেষক ও বিজ্ঞানী।
 
 ---
 
@@ -8,12 +8,12 @@ This is an HTML & CSS project designed by **Sowgato Kumar Bhowmik (সৌগত 
 
 If you use or reference this project, please cite it as:
 
-**Bhowmik, Sowgato Kumar**. *Cyber Education and Online Freelancing Website – HTML & CSS Project*. GitHub Repository: sowgato84/sowgato.  
+**Bhowmik, Sowgato Kumar**. *Cyber Education and Online Freelancing Center Website – HTML & CSS Project*. GitHub Repository: sowgato84/sowgato.  
 Published via Zenodo – June 2025.  
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15669961.svg)](https://doi.org/10.5281/zenodo.15669961)
 
 ### 📘 APA Style Citation:
-> Bhowmik, S. K. (2025). *Cyber Education and Online Freelancing Website – HTML & CSS Project*. GitHub. https://doi.org/10.5281/zenodo.15669961
+> Bhowmik, S. K. (2025). *Cyber Education and Online Freelancing Center Website – HTML & CSS Project*. GitHub. https://doi.org/10.5281/zenodo.15669961
 
 ---
 
@@ -27,7 +27,7 @@ Published via Zenodo – June 2025.
 - 🎥 [YouTube](https://youtube.com/@sowgatokumarbhowmik9756?si=0jJTpWdolFA3lXwp)  
 - 📂 [Zenodo Projects](https://zenodo.org/records/15630243)  
 - 🧑‍💻 [GitHub Personal Website](https://sowgato84.github.io/sowgato/)
-- 📘 [Facebook Page (Cyber Education)](https://www.facebook.com/cyberedutarash)  
+- 📘 [Facebook Page (Cyber Education)](https://www.facebook.com/cyberedubd)  
 - 🌐 [Google Site (Profile Page)](https://sites.google.com/view/sowgato-kumar-bhowmik/)
 
 ---
