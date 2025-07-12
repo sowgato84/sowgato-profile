@@ -1,17 +1,22 @@
-
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Sowgato Kumar Bhowmik",
   "alternateName": "সৌগত কুমার ভৌমিক",
-  "image": "https://sowgato84.github.io/sowgato/sowgato.jpg",
+  "image": [
+    "https://raw.githubusercontent.com/sowgato84/sowgato/main/sowgato-kumar-bhowmik-profile.jpg",
+    "https://raw.githubusercontent.com/sowgato84/sowgato/main/sowgato-kumar-bhowmik-office.jpg",
+    "https://raw.githubusercontent.com/sowgato84/sowgato/main/sowgato-kumar-bhowmik-research.jpg",
+    "https://raw.githubusercontent.com/sowgato84/sowgato/main/sowgato-kumar-bhowmik-freelancing.jpg",
+    "https://raw.githubusercontent.com/sowgato84/sowgato/main/sowgato-kumar-bhowmik-park.jpg"
+    ],
   "jobTitle": "International Research Scientist (আন্তর্জাতিক গবেষক ও বিজ্ঞানী)",
   "affiliation": {
     "@type": "Organization",
     "name": "Cyber Education and Online Freelancing Center",
     "location": "Tarash, Sirajganj, Bangladesh",
     "url": "https://sowgato.blogspot.com",
-    "logo": "https://sowgato84.github.io/sowgato/logo.png"
+    "logo": "https://raw.githubusercontent.com/sowgato84/sowgato/main/logo.png"
   },
   "knowsAbout": [
     "Cybersecurity",
