@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CyberShield Lab</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#0d1117;
+color:#fff;
+}
+
+header{
+background:#111827;
+padding:20px;
+text-align:center;
+box-shadow:0 2px 10px #000;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+header h1{
+color:#00e5ff;
+font-size:30px;
+}
+
+header p{
+color:#bbb;
+margin-top:5px;
+}
+
+.container{
+width:92%;
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:#161b22;
+border-radius:15px;
+padding:20px;
+margin-top:20px;
+box-shadow:0 0 12px rgba(0,0,0,.4);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+}
+
+h2{
+margin-bottom:15px;
+color:#00e5ff;
+}
+
+input,textarea{
+
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+outline:none;
+border-radius:8px;
+background:#222;
+color:#fff;
+font-size:16px;
+
+}
+
+button{
+
+margin-top:15px;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+background:#00c853;
+color:#fff;
+font-size:16px;
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#00a844;
+
+}
+
+.result{
+
+margin-top:15px;
+font-size:20px;
+font-weight:bold;
+
+}
+
+.score{
+
+height:18px;
+background:#333;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+
+}
+
+.bar{
+
+height:100%;
+width:0%;
+background:#00e676;
+transition:1s;
+
+}
+
+.tip{
+
+margin-top:15px;
+padding:12px;
+border-left:4px solid #00e5ff;
+background:#202833;
+line-height:1.7;
+
+}
+
+footer{
+
+text-align:center;
+padding:25px;
+margin-top:40px;
+background:#111827;
+color:#aaa;
+
+}
+
+.linkbtn{
+
+display:inline-block;
+margin:8px;
+padding:10px 18px;
+background:#2962ff;
+border-radius:8px;
+text-decoration:none;
+color:#fff;
+
+}
+
+.linkbtn:hover{
+
+background:#0039cb;
+
+}
+@media(max-width:700px){
+
+header h1{
+font-size:24px;
+}
+
+button{
+width:100%;
+}
+
+}
+
+.logo{
+
+width:90px;
+height:90px;
+margin:20px auto;
+border-radius:50%;
+background:linear-gradient(135deg,#00e5ff,#2962ff);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:42px;
+font-weight:bold;
+box-shadow:0 0 20px #00e5ff;
+
+animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🛡 CyberShield Lab</h1>
+
+<p>Professional Cyber Security Toolkit</p>
+
+</header>
+
+<div class="container">
+
+<div class="logo">
+
+🛡
+
+</div>
+
+<div class="card">
+
+<h2>Password Strength Analyzer</h2>
+
+<input
+type="password"
+id="pass"
+placeholder="Enter your password">
+
+<button onclick="checkPassword()">
+
+Analyze Password
+
+</button>
+
+<div class="result" id="result">
+
+Waiting...
+
+</div>
+
+<div class="score">
+
+<div class="bar" id="bar">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>URL Risk Checker</h2>
+
+<input
+type="text"
+id="url"
+placeholder="https://example.com">
+
+<button onclick="checkURL()">
+
+Check URL
+
+</button>
+
+<div class="result" id="urlResult">
+
+Waiting...
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Cyber Security Tips</h2>
+
+<div class="tip">
+
+✔ Use strong passwords.<br>
+✔ Enable Two-Factor Authentication.<br>
+✔ Never click suspicious links.<br>
+✔ Keep your phone updated.<br>
+✔ Never share OTP.
+
+</div>
+
+</div>
+<div class="card">
+
+<h2>About Developer</h2>
+
+<p><b>Sowgato Kumar Bhowmik</b></p>
+
+<p>
+International Research Scientist<br>
+(Cybersecurity & Artificial Intelligence)
+</p>
+
+<p style="margin-top:10px;">
+Founder<br>
+Cyber Education and Online Freelancing Center
+</p>
+
+<a class="linkbtn" href="https://www.linkedin.com/in/sowgato-kumar-bhowmik-0219a22b0"
+target="_blank">LinkedIn</a>
+
+<a class="linkbtn" href="https://orcid.org/0009-0005-2071-5614" target="_blank">ORCID</a>
+
+<a class="linkbtn" href="https://sowgato.blogspot.com" target="_blank">Blog</a>
+
+<a class="linkbtn" href="https://sowgato84.github.io/sowgato/" target="_blank">GitHub</a>
+
+</div>
+
+<div class="card">
+
+<h2>Privacy Policy</h2>
+
+<p style="line-height:1.8">
+
+CyberShield Lab processes your analysis locally in your browser.
+
+No password or URL is uploaded or stored by this application.
+
+This tool is designed for educational and cyber awareness purposes only.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Share & Rate</h2>
+
+<button onclick="shareApp()">Share App</button>
+
+<button onclick="rateApp()">Rate App</button>
+
+</div>
+
+</div>
+
+<footer>
+
+<b>CyberShield Lab v1.0</b>
+
+<br><br>
+
+Developed by
+
+<br>
+
+<b>Sowgato Kumar Bhowmik</b>
+
+<br>
+
+International Research Scientist
+
+</footer>
+
+<script>
+    function checkPassword(){
+
+let p=document.getElementById("pass").value;
+
+let score=0;
+
+if(p.length>=8) score++;
+if(/[A-Z]/.test(p)) score++;
+if(/[a-z]/.test(p)) score++;
+if(/[0-9]/.test(p)) score++;
+if(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(p)) score++;
+
+let text="Very Weak";
+let color="#ff1744";
+let percent=20;
+
+switch(score){
+
+case 0:
+case 1:
+text="Very Weak";
+color="#ff1744";
+percent=20;
+break;
+
+case 2:
+text="Weak";
+color="#ff9100";
+percent=40;
+break;
+
+case 3:
+text="Medium";
+color="#ffd600";
+percent=60;
+break;
+
+case 4:
+text="Strong";
+color="#00c853";
+percent=80;
+break;
+
+case 5:
+text="Very Strong";
+color="#00e676";
+percent=100;
+break;
+
+}
+
+document.getElementById("result").innerHTML=text+" ("+percent+"%)";
+
+let bar=document.getElementById("bar");
+bar.style.width=percent+"%";
+bar.style.background=color;
+
+}
+
+function checkURL(){
+
+let url=document.getElementById("url").value.toLowerCase();
+
+let msg="Looks Safe";
+let color="#00e676";
+
+if(
+url.includes("@") ||
+url.includes("bit.ly") ||
+url.includes("tinyurl") ||
+url.includes("free") ||
+url.includes("login") ||
+url.includes("verify") ||
+url.includes("update-account")
+){
+
+msg="⚠ Suspicious URL";
+color="#ff9800";
+
+}
+
+if(
+url.startsWith("http://")
+){
+
+msg="⚠ Not Secure (HTTP)";
+color="#ff1744";
+
+}
+
+let r=document.getElementById("urlResult");
+
+r.innerHTML=msg;
+r.style.color=color;
+
+}
+
+function shareApp(){
+
+if(navigator.share){
+
+navigator.share({
+
+title:"CyberShield Lab",
+
+text:"CyberShield Lab - Cyber Security Toolkit"
+
+});
+
+}else{
+
+alert("Share feature is not available on this device.");
+
+}
+
+}
+
+function rateApp(){
+
+alert("Play Store link will be added after publishing.");
+
+}
+window.onload=function(){
+
+setTimeout(function(){
+
+alert(
+"🛡 Welcome to CyberShield Lab\n\nDeveloped by\nSowgato Kumar Bhowmik"
+);
+
+},500);
+
+}
+
+</script>
+
+</body>
+</html>
