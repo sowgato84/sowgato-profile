@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Secure Encryption Lab</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#030711;
+ color:#fff;
+ font-family:Arial,sans-serif;
+}
+.app{
+ max-width:520px;
+ margin:auto;
+ padding:18px;
+}
+header{text-align:center;padding:18px 5px}
+.logo{
+ width:76px;height:76px;
+ margin:auto;
+ border:2px solid #00ff9d;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:35px;
+ box-shadow:0 0 28px #00ff9d55;
+}
+h1{font-size:24px;margin:14px 0 5px}
+.sub{color:#8592a6;font-size:13px}
+
+.card{
+ background:#0a111e;
+ border:1px solid #1a293e;
+ border-radius:18px;
+ padding:18px;
+ margin-top:16px;
+}
+.title{
+ font-size:16px;
+ font-weight:bold;
+ margin-bottom:12px;
+ color:#00ff9d;
+}
+textarea,input{
+ width:100%;
+ background:#050a13;
+ color:#fff;
+ border:1px solid #24344c;
+ border-radius:10px;
+ padding:13px;
+ outline:none;
+ font-size:14px;
+ margin-bottom:10px;
+}
+textarea{
+ min-height:110px;
+ resize:vertical;
+}
+button{
+ width:100%;
+ border:0;
+ border-radius:11px;
+ padding:14px;
+ margin-top:7px;
+ font-size:15px;
+ font-weight:bold;
+ background:#00ff9d;
+ color:#00140c;
+}
+.secondary{
+ background:#182437;
+ color:#fff;
+}
+button:active{transform:scale(.99)}
+
+.status{
+ text-align:center;
+ color:#00ff9d;
+ font-size:12px;
+ margin-top:12px;
+ min-height:18px;
+}
+.developer{
+ text-align:center;
+ color:#748197;
+ font-size:11px;
+ line-height:1.7;
+ margin:24px 0;
+}
+.developer strong{
+ color:#fff;
+ font-size:14px;
+}
+.note{
+ color:#59677b;
+ text-align:center;
+ font-size:10px;
+ line-height:1.6;
+ margin-bottom:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+ <div class="logo">🔐</div>
+ <h1>Secure Encryption Lab</h1>
+ <div class="sub">AES-GCM Message Encryption</div>
+</header>
+
+<div class="card">
+
+ <div class="title">🔒 ENCRYPT MESSAGE</div>
+
+ <textarea id="plain"
+ placeholder="এখানে গোপন বার্তা লিখুন..."></textarea>
+
+ <input
+ id="key"
+ type="password"
+ placeholder="Encryption Key লিখুন">
+
+ <button onclick="encryptMessage()">
+ 🔐 ENCRYPT
+ </button>
+
+ <textarea
+ id="encrypted"
+ readonly
+ placeholder="Encrypted message এখানে আসবে..."></textarea>
+
+ <button class="secondary" onclick="copyText('encrypted')">
+ 📋 COPY ENCRYPTED TEXT
+ </button>
+
+</div>
+
+
+<div class="card">
+
+ <div class="title">🔓 DECRYPT MESSAGE</div>
+
+ <textarea
+ id="cipher"
+ placeholder="Encrypted message এখানে দিন..."></textarea>
+
+ <input
+ id="decryptKey"
+ type="password"
+ placeholder="সঠিক Encryption Key লিখুন">
+
+ <button onclick="decryptMessage()">
+ 🔓 DECRYPT
+ </button>
+
+ <textarea
+ id="decrypted"
+ readonly
+ placeholder="Decrypted message এখানে আসবে..."></textarea>
+
+ <button class="secondary" onclick="copyText('decrypted')">
+ 📋 COPY DECRYPTED TEXT
+ </button>
+
+ <div class="status" id="status"></div>
+
+</div>
+
+
+<div class="card">
+
+ <div class="title">#️⃣ SHA-256 HASH</div>
+
+ <textarea
+ id="hashInput"
+ placeholder="যেকোনো লেখা লিখুন..."></textarea>
+
+ <button onclick="makeHash()">
+ GENERATE SHA-256 HASH
+ </button>
+
+ <textarea
+ id="hashOutput"
+ readonly
+ placeholder="SHA-256 hash এখানে আসবে..."></textarea>
+
+</div>
+
+
+<div class="developer">
+ Developed by<br>
+ <strong>Sowgato Kumar Bhowmik</strong><br>
+ International Research Scientist<br>
+ Cyber Education and Online Freelancing Center<br>
+ Tarash, Sirajganj, Bangladesh
+</div>
+
+<div class="note">
+ AES-GCM encryption is performed locally in your browser.
+ Your message and key are not sent to a server by this page.
+ Never share your encryption key publicly.
+</div>
+
+</div>
+
+
+<script>
+
+const encoder = new TextEncoder();
+const decoder = new TextDecoder();
+
+
+function toBase64(bytes){
+ return btoa(
+   String.fromCharCode(...new Uint8Array(bytes))
+ );
+}
+
+
+function fromBase64(str){
+ return Uint8Array.from(
+   atob(str),
+   c => c.charCodeAt(0)
+ );
+}
+
+
+async function makeKey(password){
+
+ const hash =
+   await crypto.subtle.digest(
+     "SHA-256",
+     encoder.encode(password)
+   );
+
+ return crypto.subtle.importKey(
+   "raw",
+   hash,
+   {name:"AES-GCM"},
+   false,
+   ["encrypt","decrypt"]
+ );
+}
+
+
+async function encryptMessage(){
+
+ const message =
+   document.getElementById("plain").value;
+
+ const password =
+   document.getElementById("key").value;
+
+ const output =
+   document.getElementById("encrypted");
+
+ const status =
+   document.getElementById("status");
+
+ if(!message || !password){
+
+   status.innerText =
+     "⚠️ Message এবং Key দুটোই দিতে হবে।";
+
+   return;
+ }
+
+ try{
+
+   const key =
+     await makeKey(password);
+
+   const iv =
+     crypto.getRandomValues(
+       new Uint8Array(12)
+     );
+
+   const encrypted =
+     await crypto.subtle.encrypt(
+       {
+         name:"AES-GCM",
+         iv:iv
+       },
+       key,
+       encoder.encode(message)
+     );
+
+   /*
+    Format:
+    IV + encrypted data
+   */
+
+   const combined =
+     new Uint8Array(
+       iv.length + encrypted.byteLength
+     );
+
+   combined.set(iv,0);
+
+   combined.set(
+     new Uint8Array(encrypted),
+     iv.length
+   );
+
+   output.value =
+     toBase64(combined);
+
+   status.innerText =
+     "✓ Message successfully encrypted.";
+
+ }catch(e){
+
+   status.innerText =
+     "Encryption failed.";
+
+ }
+
+}
+
+
+async function decryptMessage(){
+
+ const cipherText =
+   document.getElementById("cipher").value.trim();
+
+ const password =
+   document.getElementById("decryptKey").value;
+
+ const output =
+   document.getElementById("decrypted");
+
+ const status =
+   document.getElementById("status");
+
+ if(!cipherText || !password){
+
+   status.innerText =
+     "⚠️ Encrypted text এবং Key দুটোই দিতে হবে.";
+
+   return;
+ }
+
+ try{
+
+   const combined =
+     fromBase64(cipherText);
+
+   const iv =
+     combined.slice(0,12);
+
+   const encrypted =
+     combined.slice(12);
+
+   const key =
+     await makeKey(password);
+
+   const decrypted =
+     await crypto.subtle.decrypt(
+       {
+         name:"AES-GCM",
+         iv:iv
+       },
+       key,
+       encrypted
+     );
+
+   output.value =
+     decoder.decode(decrypted);
+
+   status.innerText =
+     "✓ Message successfully decrypted.";
+
+ }catch(e){
+
+   output.value="";
+
+   status.innerText =
+     "❌ ভুল Key অথবা encrypted data পরিবর্তিত হয়েছে।";
+
+ }
+
+}
+
+
+async function makeHash(){
+
+ const text =
+   document.getElementById("hashInput").value;
+
+ if(!text){
+
+   document.getElementById("hashOutput").value="";
+   return;
+
+ }
+
+ const hash =
+   await crypto.subtle.digest(
+     "SHA-256",
+     encoder.encode(text)
+   );
+
+ const bytes =
+   new Uint8Array(hash);
+
+ const hex =
+   Array.from(bytes)
+   .map(b=>b.toString(16).padStart(2,"0"))
+   .join("");
+
+ document.getElementById("hashOutput").value =
+   hex;
+}
+
+
+function copyText(id){
+
+ const el =
+   document.getElementById(id);
+
+ if(!el.value) return;
+
+ navigator.clipboard.writeText(el.value)
+ .then(()=>{
+
+   document.getElementById("status").innerText =
+     "✓ Copied to clipboard.";
+
+ })
+ .catch(()=>{
+
+   el.select();
+   document.execCommand("copy");
+
+   document.getElementById("status").innerText =
+     "✓ Copied.";
+
+ });
+}
+
+</script>
+
+</body>
+</html>
