@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SSC Batch 1999 | Bogra Coronation Institution</title>
+
+<style>
+
+/* ==============================
+   BASIC
+============================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        Arial,
+        "Noto Sans Bengali",
+        "SolaimanLipi",
+        sans-serif;
+
+    background:#eef2f7;
+    color:#172033;
+    line-height:1.6;
+}
+
+
+/* ==============================
+   NAVBAR
+============================== */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:
+        linear-gradient(
+            90deg,
+            #07152f,
+            #123c72,
+            #075985
+        );
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,.25);
+}
+
+.nav-container{
+    max-width:1400px;
+    margin:auto;
+
+    min-height:65px;
+
+    padding:8px 18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+.logo{
+    color:white;
+    font-size:21px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#38bdf8;
+}
+
+.nav-menu{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.nav-menu a{
+    text-decoration:none;
+    color:#e0f2fe;
+
+    padding:8px 13px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.nav-menu a:hover{
+    background:#0ea5e9;
+    color:white;
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero{
+    min-height:300px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    color:white;
+
+    padding:55px 18px 85px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(56,189,248,.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(139,92,246,.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #081b38,
+            #123f73,
+            #075985
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    max-width:950px;
+}
+
+.hero-badge{
+    display:inline-block;
+
+    padding:7px 17px;
+
+    margin-bottom:14px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.3);
+
+    background:rgba(255,255,255,.12);
+
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:clamp(32px,6vw,58px);
+    line-height:1.15;
+
+    margin-bottom:8px;
+}
+
+.hero h2{
+    color:#bae6fd;
+
+    font-size:
+        clamp(18px,3vw,28px);
+
+    margin-bottom:12px;
+}
+
+.hero p{
+    color:#dbeafe;
+
+    font-size:15px;
+
+    max-width:750px;
+
+    margin:auto;
+}
+
+
+/* ==============================
+   MAIN CONTAINER
+============================== */
+
+.container{
+    max-width:1400px;
+    margin:auto;
+
+    padding:0 18px 45px;
+}
+
+
+/* ==============================
+   STATISTICS
+============================== */
+
+.stats{
+    position:relative;
+
+    margin-top:-48px;
+
+    z-index:20;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+.stat{
+    background:white;
+
+    border-radius:16px;
+
+    padding:20px 10px;
+
+    text-align:center;
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.12);
+
+    border-top:4px solid #2563eb;
+}
+
+.stat:nth-child(2){
+    border-color:#16a34a;
+}
+
+.stat:nth-child(3){
+    border-color:#f59e0b;
+}
+
+.stat:nth-child(4){
+    border-color:#8b5cf6;
+}
+
+.stat-number{
+    font-size:30px;
+    font-weight:bold;
+
+    color:#172033;
+}
+
+.stat-label{
+    color:#64748b;
+    font-size:13px;
+}
+
+
+/* ==============================
+   SECTION
+============================== */
+
+.section{
+    margin-top:45px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.section-title h2{
+    color:#0f172a;
+    font-size:28px;
+}
+
+.section-title p{
+    color:#64748b;
+    font-size:14px;
+}
+
+
+/* ==============================
+   SEARCH PANEL
+============================== */
+
+.control-panel{
+    background:white;
+
+    padding:20px;
+
+    border-radius:17px;
+
+    box-shadow:
+        0 5px 20px rgba(15,23,42,.08);
+
+    margin-bottom:20px;
+}
+
+.search-row{
+    display:flex;
+    gap:10px;
+}
+
+.search-input{
+    flex:1;
+
+    width:100%;
+
+    padding:14px 17px;
+
+    border:2px solid #e2e8f0;
+
+    border-radius:11px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+}
+
+.search-input:focus{
+    border-color:#0ea5e9;
+
+    box-shadow:
+        0 0 0 3px rgba(14,165,233,.1);
+}
+
+.clear-btn{
+    border:0;
+
+    padding:0 18px;
+
+    border-radius:11px;
+
+    cursor:pointer;
+
+    background:#334155;
+
+    color:white;
+
+    font-size:14px;
+}
+
+.clear-btn:hover{
+    background:#0f172a;
+}
+
+
+/* ==============================
+   FILTERS
+============================== */
+
+.filters{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    margin-top:15px;
+
+    justify-content:center;
+}
+
+.filter-btn{
+    border:0;
+
+    cursor:pointer;
+
+    padding:9px 16px;
+
+    border-radius:30px;
+
+    background:#e2e8f0;
+
+    color:#334155;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.filter-btn:hover{
+    transform:translateY(-1px);
+}
+
+.filter-btn.active{
+    background:#2563eb;
+    color:white;
+}
+
+.filter-btn[data-filter="Science"].active{
+    background:#16a34a;
+}
+
+.filter-btn[data-filter="Arts"].active{
+    background:#f59e0b;
+}
+
+.filter-btn[data-filter="Commerce"].active{
+    background:#7c3aed;
+}
+
+
+/* ==============================
+   RESULT INFO
+============================== */
+
+.result-info{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:15px 2px;
+
+    color:#64748b;
+
+    font-size:13px;
+}
+
+
+/* ==============================
+   TABLE WRAPPER
+============================== */
+
+.table-wrapper{
+    background:white;
+
+    border-radius:17px;
+
+    overflow:auto;
+
+    box-shadow:
+        0 7px 25px rgba(15,23,42,.1);
+}
+
+
+/* ==============================
+   TABLE
+============================== */
+
+.student-table{
+    width:100%;
+
+    min-width:1150px;
+
+    border-collapse:collapse;
+
+    font-size:14px;
+}
+
+.student-table th{
+    background:
+        linear-gradient(
+            135deg,
+            #f97316,
+            #ea580c
+        );
+
+    color:white;
+
+    padding:13px 9px;
+
+    text-align:center;
+
+    position:sticky;
+    top:0;
+
+    z-index:5;
+
+    white-space:nowrap;
+}
+
+.student-table td{
+    padding:11px 9px;
+
+    border-bottom:1px solid #e2e8f0;
+
+    vertical-align:middle;
+}
+
+.student-table tbody tr{
+    transition:.2s;
+}
+
+.student-table tbody tr:hover{
+    background:#f8fafc;
+}
+
+
+/* COLUMN COLORS */
+
+.col-no{
+    width:60px;
+
+    text-align:center;
+
+    background:#dbeafe;
+
+    font-weight:bold;
+}
+
+.col-name{
+    min-width:190px;
+
+    background:#fff7cc;
+
+    font-weight:bold;
+}
+
+.col-address{
+    min-width:210px;
+
+    background:#d9f0c5;
+}
+
+.col-phone{
+    min-width:170px;
+
+    background:#ffe0cc;
+
+    font-family:Arial,sans-serif;
+}
+
+.col-blood{
+    min-width:130px;
+
+    text-align:center;
+
+    background:#ff0000;
+
+    color:white;
+
+    font-weight:bold;
+}
+
+.col-job{
+    min-width:220px;
+
+    background:#e1e1e1;
+}
+
+.col-family{
+    min-width:230px;
+
+    background:#ffd0b3;
+}
+
+
+/* ==============================
+   BLOOD GROUP
+============================== */
+
+.blood{
+    display:inline-block;
+
+    padding:5px 11px;
+
+    border-radius:20px;
+
+    background:#b91c1c;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+
+/* ==============================
+   EMPTY ROW
+============================== */
+
+.empty-row td{
+    height:43px;
+    color:#cbd5e1;
+}
+
+.empty-row:hover{
+    background:#fff;
+}
+
+
+/* ==============================
+   MOBILE CARDS
+============================== */
+
+.mobile-list{
+    display:none;
+}
+
+.student-card{
+    background:white;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    margin-bottom:14px;
+
+    box-shadow:
+        0 5px 18px rgba(15,23,42,.08);
+
+    border-left:5px solid #2563eb;
+}
+
+.card-header{
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    margin-bottom:14px;
+}
+
+.avatar{
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #06b6d4
+        );
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:20px;
+
+    flex-shrink:0;
+}
+
+.card-name{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.card-roll{
+    color:#64748b;
+    font-size:12px;
+}
+
+.card-details{
+    border-top:1px solid #e2e8f0;
+    padding-top:10px;
+}
+
+.card-detail{
+    display:flex;
+    gap:7px;
+
+    padding:6px 0;
+
+    font-size:13px;
+
+    color:#475569;
+}
+
+.card-detail b{
+    color:#172033;
+}
+
+.card-blood{
+    display:inline-block;
+
+    padding:4px 9px;
+
+    border-radius:15px;
+
+    background:#dc2626;
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+
+/* ==============================
+   NO RESULT
+============================== */
+
+.no-result{
+    display:none;
+
+    text-align:center;
+
+    padding:45px 20px;
+
+    background:white;
+
+    border-radius:16px;
+
+    color:#64748b;
+
+    box-shadow:
+        0 5px 18px rgba(15,23,42,.07);
+}
+
+
+/* ==============================
+   ABOUT
+============================== */
+
+.about-box{
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 5px 20px rgba(15,23,42,.08);
+
+    text-align:center;
+}
+
+.about-box h3{
+    color:#1d4ed8;
+
+    font-size:23px;
+
+    margin-bottom:10px;
+}
+
+.about-box p{
+    color:#475569;
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer{
+    background:#07152f;
+
+    color:#cbd5e1;
+
+    text-align:center;
+
+    padding:35px 15px;
+}
+
+footer h3{
+    color:white;
+
+    margin-bottom:7px;
+}
+
+footer p{
+    font-size:13px;
+}
+
+
+/* ==============================
+   SCROLL BUTTONS
+============================== */
+
+.scroll-buttons{
+    position:fixed;
+
+    right:17px;
+
+    bottom:20px;
+
+    z-index:999;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+}
+
+.scroll-btn{
+    width:43px;
+    height:43px;
+
+    border:0;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:21px;
+
+    background:#2563eb;
+
+    box-shadow:
+        0 5px 17px rgba(37,99,235,.4);
+
+    transition:.3s;
+}
+
+.scroll-btn:hover{
+    transform:scale(1.08);
+
+    background:#1d4ed8;
+}
+
+
+/* ==============================
+   BACK TO TOP VISIBILITY
+============================== */
+
+#topBtn{
+    opacity:0;
+
+    pointer-events:none;
+}
+
+#topBtn.show{
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media(max-width:900px){
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .nav-container{
+        flex-direction:column;
+        padding:10px;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .table-wrapper{
+        display:none;
+    }
+
+    .mobile-list{
+        display:block;
+    }
+
+    .search-row{
+        flex-direction:column;
+    }
+
+    .clear-btn{
+        padding:12px;
+    }
+
+    .hero{
+        min-height:280px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .hero{
+        padding:45px 12px 70px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero h2{
+        font-size:19px;
+    }
+
+    .stats{
+        gap:9px;
+    }
+
+    .stat{
+        padding:15px 5px;
+    }
+
+    .stat-number{
+        font-size:25px;
+    }
+
+    .stat-label{
+        font-size:11px;
+    }
+
+    .container{
+        padding-left:10px;
+        padding-right:10px;
+    }
+
+}
+
+
+/* ==============================
+   PRINT
+============================== */
+
+@media print{
+
+    .navbar,
+    .hero,
+    .stats,
+    .control-panel,
+    .scroll-buttons,
+    footer{
+        display:none;
+    }
+
+    .container{
+        max-width:none;
+    }
+
+    .table-wrapper{
+        box-shadow:none;
+    }
+
+    .student-table{
+        min-width:0;
+        font-size:10px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVIGATION
+===================================== -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <div class="logo">
+            SSC <span>1999</span>
+        </div>
+
+        <div class="nav-menu">
+
+            <a href="#home">
+                🏠 হোম
+            </a>
+
+            <a href="#students">
+                👨‍🎓 শিক্ষার্থী
+            </a>
+
+            <a href="#about">
+                ℹ️ ব্যাচ পরিচিতি
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            🎓 ALUMNI DIRECTORY • SSC 1999
+        </div>
+
+        <h1>
+            SSC Batch 1999
+        </h1>
+
+        <h2>
+            বগুড়া করোনেশন ইন্সটিটিউশন স্কুল এন্ড কলেজ
+        </h2>
+
+        <p>
+            আমাদের ব্যাচের বন্ধুদের পরিচয়, যোগাযোগ,
+            কর্মজীবন এবং পারিবারিক তথ্যের একটি
+            ডিজিটাল তালিকা।
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     MAIN
+===================================== -->
+
+<main class="container">
+
+
+    <!-- =================================
+         STATISTICS
+    ================================== -->
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div
+                class="stat-number"
+                id="totalCount">
+                0
+            </div>
+
+            <div class="stat-label">
+                মোট শিক্ষার্থী
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div
+                class="stat-number"
+                id="scienceCount">
+                0
+            </div>
+
+            <div class="stat-label">
+                Science
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div
+                class="stat-number"
+                id="artsCount">
+                0
+            </div>
+
+            <div class="stat-label">
+                Arts
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div
+                class="stat-number"
+                id="commerceCount">
+                0
+            </div>
+
+            <div class="stat-label">
+                Commerce
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         STUDENT SECTION
+    ================================== -->
+
+    <section
+        class="section"
+        id="students">
+
+        <div class="section-title">
+
+            <h2>
+                আমাদের ব্যাচের শিক্ষার্থীরা
+            </h2>
+
+            <p>
+                নাম, ঠিকানা, মোবাইল, পেশা অথবা
+                রক্তের গ্রুপ দিয়ে খুঁজুন
+            </p>
+
+        </div>
+
+
+
+        <!-- =============================
+             SEARCH & FILTER
+        ============================== -->
+
+        <div class="control-panel">
+
+            <div class="search-row">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="🔍  নাম / ঠিকানা / মোবাইল / পেশা / রক্তের গ্রুপ দিয়ে খুঁজুন..."
+                >
+
+                <button
+                    class="clear-btn"
+                    onclick="clearSearch()">
+                    ✕ Clear
+                </button>
+
+            </div>
+
+
+            <div class="filters">
+
+                <button
+                    class="filter-btn active"
+                    data-filter="all">
+                    👥 সকল
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="Science">
+                    🔬 Science
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="Arts">
+                    🎨 Arts
+                </button>
+
+                <button
+                    class="filter-btn"
+                    data-filter="Commerce">
+                    💼 Commerce
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =============================
+             RESULT INFO
+        ============================== -->
+
+        <div class="result-info">
+
+            <span id="resultText">
+                তালিকা প্রস্তুত হচ্ছে...
+            </span>
+
+            <span>
+                মোট আসন: ১০০
+            </span>
+
+        </div>
+
+
+
+        <!-- =================================
+             DESKTOP TABLE
+        ================================== -->
+
+        <div class="table-wrapper">
+
+            <table class="student-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ক্রমিক<br>নং
+                        </th>
+
+                        <th>
+                            নাম
+                        </th>
+
+                        <th>
+                            ঠিকানা
+                        </th>
+
+                        <th>
+                            মোবাইল /<br>
+                            হোয়াটসঅ্যাপ
+                        </th>
+
+                        <th>
+                            রক্তের গ্রুপ
+                        </th>
+
+                        <th>
+                            কর্মস্থলের বিবরণ
+                        </th>
+
+                        <th>
+                            স্ত্রী ও সন্তানদের বিবরণ
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tableBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+        <!-- =================================
+             MOBILE LIST
+        ================================== -->
+
+        <div
+            class="mobile-list"
+            id="mobileList">
+        </div>
+
+
+
+        <!-- =================================
+             NO RESULT
+        ================================== -->
+
+        <div
+            class="no-result"
+            id="noResult">
+
+            <div style="font-size:35px;">
+                🔎
+            </div>
+
+            <h3>
+                কোনো তথ্য পাওয়া যায়নি
+            </h3>
+
+            <p>
+                অন্য নাম বা তথ্য দিয়ে আবার চেষ্টা করুন।
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================
+         ABOUT
+    ================================== -->
+
+    <section
+        class="section"
+        id="about">
+
+        <div class="section-title">
+
+            <h2>
+                আমাদের ব্যাচ
+            </h2>
+
+            <p>
+                একটি ব্যাচ • হাজারো স্মৃতি • একটি বন্ধন
+            </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <h3>
+                🎓 SSC Batch 1999
+            </h3>
+
+            <p>
+                বগুড়া করোনেশন ইন্সটিটিউশন স্কুল এন্ড কলেজের
+                ১৯৯৯ সালের এস এস সি ব্যাচের বন্ধুদের
+                তথ্য সংরক্ষণ ও পারস্পরিক যোগাযোগের জন্য
+                এই ডিজিটাল Alumni Directory তৈরি করা হয়েছে।
+            </p>
+
+            <br>
+
+            <p>
+                এখানে সর্বোচ্চ ১০০ জন শিক্ষার্থীর তথ্য
+                সংরক্ষণ করা যাবে। ভবিষ্যতে প্রয়োজন অনুযায়ী
+                নাম, ঠিকানা, মোবাইল, রক্তের গ্রুপ,
+                কর্মস্থল ও পারিবারিক তথ্য যোগ বা পরিবর্তন
+                করা যাবে।
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================
+     FOOTER
+===================================== -->
+
+<footer>
+
+    <h3>
+        SSC Batch 1999
+    </h3>
+
+    <p>
+        বগুড়া করোনেশন ইন্সটিটিউশন স্কুল এন্ড কলেজ
+    </p>
+
+    <p>
+        © 2026 • SSC Batch 1999 Alumni Directory
+    </p>
+
+</footer>
+
+
+
+<!-- =====================================
+     SCROLL BUTTONS
+===================================== -->
+
+<div class="scroll-buttons">
+
+    <button
+        id="topBtn"
+        class="scroll-btn"
+        onclick="goTop()"
+        title="উপরে যান">
+        ↑
+    </button>
+
+    <button
+        class="scroll-btn"
+        onclick="goBottom()"
+        title="নিচে যান">
+        ↓
+    </button>
+
+</div>
+
+
+
+<script>
+
+/* ==================================================
+   STUDENT DATA
+
+   এখানে সর্বোচ্চ ১০০ জন রাখা যাবে।
+
+   নতুন ছাত্র যোগ করতে নিচের মতো লিখবে:
+
+   {
+       no: 20,
+       name: "নাম",
+       address: "ঠিকানা",
+       phone: "মোবাইল",
+       blood: "A-Positive",
+       group: "Science",
+       job: "কর্মস্থল",
+       family: "স্ত্রী ও সন্তান"
+   }
+
+================================================== */
+
+
+const students = [
+
+    {
+        no:1,
+        name:"মোঃ রাসেদুল হক",
+        address:"নিশিন্দারা উত্তর পাড়া, বগুড়া সদর, বগুড়া।",
+        phone:"০১৩০৩-৫০৪৪২৭",
+        blood:"O-Positive",
+        group:"Science",
+        job:"ইসলামী ব্যাংক বাংলাদেশ পিএলসি, বড়গোলা শাখা",
+        family:"স্ত্রী-গৃহিণী, ১ ছেলে ১ মেয়ে"
+    },
+
+    {
+        no:2,
+        name:"মোঃ লিটন শেখ",
+        address:"নিশিন্দারা পূর্ব পাড়া",
+        phone:"০১৭১৬-২১২০৬২",
+        blood:"A-Positive",
+        group:"Arts",
+        job:"ব্যবসা",
+        family:"স্ত্রী-গৃহিণী, ২ ছেলে"
+    },
+
+    {
+        no:3,
+        name:"মোঃ রাসেদুল ইসলাম",
+        address:"ফুলবাড়ী উত্তর পাড়া",
+        phone:"০১৭১২-৭০২৫০২",
+        blood:"O-Positive",
+        group:"Commerce",
+        job:"ব্যবসা প্লাস্টিক",
+        family:"স্ত্রী-গৃহিণী, ২ ছেলে ১ মেয়ে"
+    },
+
+    {
+        no:4,
+        name:"মোঃ আল আমিন ইমরান",
+        address:"নিশিন্দারা পূর্ব খাঁ পাড়া",
+        phone:"০১৮৮৬-১০৮৫২৯",
+        blood:"A-Positive",
+        group:"Science",
+        job:"চাকুরী - রবি কোম্পানি",
+        family:"স্ত্রী-গৃহিণী, ২ মেয়ে"
+    },
+
+    {
+        no:5,
+        name:"মোঃ মতিউর রহমান মাসুদ",
+        address:"ফুলবাড়ী সরকার পাড়া, ১৮ নং ওয়ার্ড",
+        phone:"০১৭১৩-১৭৬৬৬৪",
+        blood:"B-Positive",
+        group:"Commerce",
+        job:"ব্যবসা, ফিড ডিস্ট্রিবিউটর",
+        family:"স্ত্রী-গৃহিণী, ১ ছেলে ১ মেয়ে"
+    },
+
+    {
+        no:6,
+        name:"সৌগত কুমার ভৌমিক",
+        address:"সিরাজগঞ্জ",
+        phone:"০১৭১৫-৬৪৯১৯০",
+        blood:"B-Positive",
+        group:"Arts",
+        job:"ব্যবসা, আইটি ফার্ম",
+        family:"স্ত্রী-গৃহিণী, ১ ছেলে"
+    },
+
+    {
+        no:7,
+        name:"নবীন কুমার",
+        address:"শিববাটি, বগুড়া",
+        phone:"০১৭২৬-৫৫৭৯১১",
+        blood:"",
+        group:"Arts",
+        job:"চাকুরীজীবী",
+        family:"স্ত্রী-গৃহিণী, ১ ছেলে"
+    },
+
+    {
+        no:8,
+        name:"মান্নাফ মানিক",
+        address:"শিববাটি, বগুড়া",
+        phone:"০১৭১৮-২১৩৯০৭",
+        blood:"A-Positive",
+        group:"Commerce",
+        job:"ব্যবসা",
+        family:"স্ত্রী-গৃহিণী, ১ ছেলে ১ মেয়ে"
+    },
+
+    {
+        no:9,
+        name:"এম এ সামাদ রাবু",
+        address:"আটাপাড়া বগুড়া",
+        phone:"০১৭১৭-৪১২২১১",
+        blood:"A-Positive",
+        group:"Arts",
+        job:"ব্যবসা",
+        family:"স্ত্রী-গৃহিণী, ১ ছেলে ১ মেয়ে"
+    },
+
+    {
+        no:10,
+        name:"মোঃ নকিবুল করিম ববি",
+        address:"আটাপাড়া বগুড়া",
+        phone:"০১৯৮৩-০২৬৮০২",
+        blood:"O-Negative",
+        group:"Commerce",
+        job:"চাকুরীজীবী",
+        family:"স্ত্রী-গৃহিণী, ২ মেয়ে"
+    },
+
+    {
+        no:11,
+        name:"মোঃ আব্দুল আলিম",
+        address:"ফুলবাড়ী বগুড়া",
+        phone:"০১৭১২-৬৯২১১৯",
+        blood:"O-Positive",
+        group:"Arts",
+        job:"ব্যবসা",
+        family:"স্ত্রী-গৃহিণী, ১ ছেলে ১ মেয়ে"
+    },
+
+    {
+        no:12,
+        name:"মোঃ গোলাম মোস্তফা বাপ্পী",
+        address:"শিববাটি অন্ধ মাদ্রাসা লেন",
+        phone:"০১৭২৮-১৬৫৪৬৭",
+        blood:"A-Positive",
+        group:"Arts",
+        job:"ব্যবসা",
+        family:"স্ত্রী-গৃহিণী, ১ ছেলে ১ মেয়ে"
+    },
+
+    {
+        no:13,
+        name:"মোঃ আল জাহাজুরি",
+        address:"গোকুল দক্ষিণপাড়া",
+        phone:"০১৯১৫-৪৫৫৯৩৩",
+        blood:"A-Negative",
+        group:"Science",
+        job:"চাকুরী/ব্যবসা",
+        family:"স্ত্রী-গৃহিণী, ৩ ছেলে ১ মেয়ে"
+    },
+
+    {
+        no:14,
+        name:"আবু নাছের মোঃ রায়হান",
+        address:"আটাপাড়া বগুড়া",
+        phone:"০১৭৭৬-৪০১৪৩৩",
+        blood:"O-Positive",
+        group:"Science",
+        job:"অগ্রণী ব্যাংক, সাতমাথা",
+        family:"স্ত্রী-গৃহিণী, ১ মেয়ে ২ ছেলে"
+    },
+
+    {
+        no:15,
+        name:"মোঃ সাইফুল",
+        address:"ফুলবাড়ী বগুড়া",
+        phone:"০১৭১৩-৭৭৬৪৭৫",
+        blood:"O-Positive",
+        group:"Commerce",
+        job:"ব্যবসা",
+        family:"অবিবাহিত"
+    },
+
+    {
+        no:16,
+        name:"জাকারিয়া মোস্তফা",
+        address:"কাটনারপাড়া বগুড়া",
+        phone:"০১৯১৬-১৬২৩২৩, ০১৯১৭-১২৭৭৩৫",
+        blood:"A-Positive",
+        group:"Commerce",
+        job:"চাকুরী",
+        family:"বিবাহিত"
+    },
+
+    {
+        no:17,
+        name:"মোঃ নজরুল",
+        address:"ফুলবাড়ী, বগুড়া",
+        phone:"০১৭১৪-৯২৮০৬৮",
+        blood:"O-Positive",
+        group:"Commerce",
+        job:"ব্যবসা",
+        family:"বিবাহিত"
+    },
+
+    {
+        no:18,
+        name:"মোঃ নুরুন্নবী শেখ",
+        address:"গোয়ালগাড়ী, বগুড়া",
+        phone:"০১৭২১-৫১২৩৫৩",
+        blood:"B-Positive",
+        group:"Science",
+        job:"শিক্ষকতা, বিয়াম মডেল স্কুল",
+        family:"স্ত্রী-গৃহিণী, ১ ছেলে ১ মেয়ে"
+    },
+
+    {
+        no:19,
+        name:"মোঃ আতিকুজ্জামান সরকার",
+        address:"ফুলবাড়ী দক্ষিণ পাড়া",
+        phone:"০১৭২৩-২০৮৯৪১",
+        blood:"B-Positive",
+        group:"Science",
+        job:"পল্লী সঞ্চয় ব্যাংক, উপজেলা",
+        family:"স্ত্রী-গৃহিণী, ২ ছেলে"
+    }
+
+];
+
+
+
+/* ==================================================
+   CREATE EMPTY ROWS UP TO 100
+
+   এতে ২০ থেকে ১০০ পর্যন্ত জায়গা
+   স্বয়ংক্রিয়ভাবে তৈরি হবে।
+================================================== */
+
+for(let i = students.length + 1; i <= 100; i++){
+
+    students.push({
+        no:i,
+        name:"",
+        address:"",
+        phone:"",
+        blood:"",
+        group:"",
+        job:"",
+        family:""
+    });
+
+}
+
+
+
+/* ==================================================
+   ELEMENTS
+================================================== */
+
+const tableBody =
+    document.getElementById("tableBody");
+
+const mobileList =
+    document.getElementById("mobileList");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const noResult =
+    document.getElementById("noResult");
+
+const resultText =
+    document.getElementById("resultText");
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+let currentFilter = "all";
+
+
+
+/* ==================================================
+   BANGLA NUMBER
+
+   1 → ১
+   2 → ২
+================================================== */
+
+function banglaNumber(number){
+
+    const bn = [
+        "০","১","২","৩","৪",
+        "৫","৬","৭","৮","৯"
+    ];
+
+    return String(number)
+        .replace(/[0-9]/g,
+        digit => bn[digit]);
+}
+
+
+
+/* ==================================================
+   AVATAR
+================================================== */
+
+function getAvatar(name){
+
+    if(!name){
+        return "—";
+    }
+
+    return name
+        .replace("মোঃ ","")
+        .replace("মো. ","")
+        .trim()
+        .charAt(0);
+}
+
+
+
+/* ==================================================
+   TABLE RENDER
+================================================== */
+
+function renderTable(){
+
+    tableBody.innerHTML = "";
+
+    let visible = 0;
+
+    const search =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+
+    students.forEach(student => {
+
+        const searchableText = (
+
+            student.name + " " +
+            student.address + " " +
+            student.phone + " " +
+            student.blood + " " +
+            student.group + " " +
+            student.job + " " +
+            student.family
+
+        ).toLowerCase();
+
+
+        const matchesSearch =
+            searchableText.includes(search);
+
+
+        const matchesFilter =
+            currentFilter === "all" ||
+            student.group === currentFilter;
+
+
+        if(!matchesSearch || !matchesFilter){
+            return;
+        }
+
+
+        visible++;
+
+
+        const row =
+            document.createElement("tr");
+
+
+        /* EMPTY PERSON */
+
+        if(!student.name){
+
+            row.className = "empty-row";
+
+            row.innerHTML = `
+
+                <td class="col-no">
+                    ${banglaNumber(student.no)}
+                </td>
+
+                <td class="col-name"></td>
+
+                <td class="col-address"></td>
+
+                <td class="col-phone"></td>
+
+                <td class="col-blood"></td>
+
+                <td class="col-job"></td>
+
+                <td class="col-family"></td>
+
+            `;
+
+        }
+
+        /* REAL PERSON */
+
+        else{
+
+            row.innerHTML = `
+
+                <td class="col-no">
+                    ${banglaNumber(student.no)}
+                </td>
+
+                <td class="col-name">
+                    ${student.name}
+                </td>
+
+                <td class="col-address">
+                    ${student.address || "—"}
+                </td>
+
+                <td class="col-phone">
+                    ${student.phone || "—"}
+                </td>
+
+                <td class="col-blood">
+
+                    ${
+                        student.blood
+                        ?
+                        `<span class="blood">
+                            ${student.blood}
+                         </span>`
+                        :
+                        "—"
+                    }
+
+                </td>
+
+                <td class="col-job">
+                    ${student.job || "—"}
+                </td>
+
+                <td class="col-family">
+                    ${student.family || "—"}
+                </td>
+
+            `;
+
+        }
+
+
+        tableBody.appendChild(row);
+
+    });
+
+
+    updateResult(visible);
+
+}
+
+
+
+/* ==================================================
+   MOBILE RENDER
+================================================== */
+
+function renderMobile(){
+
+    mobileList.innerHTML = "";
+
+    let visible = 0;
+
+    const search =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+
+    students.forEach(student => {
+
+        const searchableText = (
+
+            student.name + " " +
+            student.address + " " +
+            student.phone + " " +
+            student.blood + " " +
+            student.group + " " +
+            student.job + " " +
+            student.family
+
+        ).toLowerCase();
+
+
+        const matchesSearch =
+            searchableText.includes(search);
+
+
+        const matchesFilter =
+            currentFilter === "all" ||
+            student.group === currentFilter;
+
+
+        if(!matchesSearch || !matchesFilter){
+            return;
+        }
+
+
+        /* EMPTY ROWS */
+
+        if(!student.name){
+
+            const empty =
+                document.createElement("div");
+
+            empty.className =
+                "student-card";
+
+            empty.style.opacity = ".35";
+
+            empty.innerHTML = `
+
+                <div class="card-header">
+
+                    <div class="avatar">
+                        ${banglaNumber(student.no)}
+                    </div>
+
+                    <div>
+
+                        <div class="card-name">
+                            তথ্য যোগ করা হয়নি
+                        </div>
+
+                        <div class="card-roll">
+                            ক্রমিক নং:
+                            ${banglaNumber(student.no)}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+            mobileList.appendChild(empty);
+
+            visible++;
+
+            return;
+        }
+
+
+        visible++;
+
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "student-card";
+
+
+        card.innerHTML = `
+
+            <div class="card-header">
+
+                <div class="avatar">
+                    ${getAvatar(student.name)}
+                </div>
+
+                <div>
+
+                    <div class="card-name">
+                        ${student.name}
+                    </div>
+
+                    <div class="card-roll">
+                        ক্রমিক নং:
+                        ${banglaNumber(student.no)}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-details">
+
+                <div class="card-detail">
+                    📚
+                    <b>গ্রুপ:</b>
+                    ${student.group || "—"}
+                </div>
+
+
+                <div class="card-detail">
+                    📍
+                    <b>ঠিকানা:</b>
+                    ${student.address || "—"}
+                </div>
+
+
+                <div class="card-detail">
+                    📱
+                    <b>মোবাইল:</b>
+                    ${student.phone || "—"}
+                </div>
+
+
+                <div class="card-detail">
+
+                    🩸
+                    <b>রক্ত:</b>
+
+                    ${
+                        student.blood
+                        ?
+                        `<span class="card-blood">
+                            ${student.blood}
+                         </span>`
+                        :
+                        "—"
+                    }
+
+                </div>
+
+
+                <div class="card-detail">
+                    💼
+                    <b>কর্মস্থল:</b>
+                    ${student.job || "—"}
+                </div>
+
+
+                <div class="card-detail">
+                    👨‍👩‍👧
+                    <b>পরিবার:</b>
+                    ${student.family || "—"}
+                </div>
+
+            </div>
+
+        `;
+
+
+        mobileList.appendChild(card);
+
+    });
+
+
+    updateResult(visible);
+
+}
+
+
+
+/* ==================================================
+   UPDATE RESULT
+================================================== */
+
+function updateResult(count){
+
+    if(count === 0){
+
+        noResult.style.display =
+            "block";
+
+        resultText.innerText =
+            "কোনো তথ্য পাওয়া যায়নি";
+
+    }else{
+
+        noResult.style.display =
+            "none";
+
+        resultText.innerText =
+            "দেখানো হচ্ছে " +
+            banglaNumber(count) +
+            " টি রেকর্ড";
+
+    }
+
+}
+
+
+
+/* ==================================================
+   RENDER BOTH
+================================================== */
+
+function render(){
+
+    renderTable();
+
+    renderMobile();
+
+    updateStats();
+
+}
+
+
+
+/* ==================================================
+   SEARCH
+================================================== */
+
+searchInput.addEventListener(
+    "input",
+    render
+);
+
+
+
+/* ==================================================
+   FILTER
+================================================== */
+
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            filterButtons.forEach(btn => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            this.classList.add(
+                "active"
+            );
+
+
+            currentFilter =
+                this.dataset.filter;
+
+
+            render();
+
+        }
+    );
+
+});
+
+
+
+/* ==================================================
+   CLEAR SEARCH
+================================================== */
+
+function clearSearch(){
+
+    searchInput.value = "";
+
+    currentFilter = "all";
+
+
+    filterButtons.forEach(btn => {
+
+        btn.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    document
+        .querySelector(
+            '[data-filter="all"]'
+        )
+        .classList.add("active");
+
+
+    render();
+
+}
+
+
+
+/* ==================================================
+   STATISTICS
+================================================== */
+
+function updateStats(){
+
+    const filled =
+        students.filter(
+            student => student.name
+        );
+
+
+    const science =
+        filled.filter(
+            student =>
+            student.group === "Science"
+        ).length;
+
+
+    const arts =
+        filled.filter(
+            student =>
+            student.group === "Arts"
+        ).length;
+
+
+    const commerce =
+        filled.filter(
+            student =>
+            student.group === "Commerce"
+        ).length;
+
+
+    document.getElementById(
+        "totalCount"
+    ).innerText =
+        banglaNumber(filled.length);
+
+
+    document.getElementById(
+        "scienceCount"
+    ).innerText =
+        banglaNumber(science);
+
+
+    document.getElementById(
+        "artsCount"
+    ).innerText =
+        banglaNumber(arts);
+
+
+    document.getElementById(
+        "commerceCount"
+    ).innerText =
+        banglaNumber(commerce);
+
+}
+
+
+
+/* ==================================================
+   SCROLL
+================================================== */
+
+function goTop(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+function goBottom(){
+
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+    });
+
+}
+
+
+
+/* ==================================================
+   TOP BUTTON SHOW / HIDE
+================================================== */
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        const topBtn =
+            document.getElementById(
+                "topBtn"
+            );
+
+
+        if(window.scrollY > 300){
+
+            topBtn.classList.add(
+                "show"
+            );
+
+        }else{
+
+            topBtn.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+
+/* ==================================================
+   START
+================================================== */
+
+render();
+
+</script>
+
+</body>
+</html>
