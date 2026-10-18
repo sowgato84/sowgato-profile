@@ -1,26 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Secure Encryption Lab - Educational AES-GCM message encryption and decryption tool.">
+
 <title>Secure Encryption Lab</title>
 
 <style>
 *{box-sizing:border-box}
+
 body{
  margin:0;
  background:#030711;
  color:#fff;
  font-family:Arial,sans-serif;
 }
+
 .app{
  max-width:520px;
  margin:auto;
  padding:18px;
 }
-header{text-align:center;padding:18px 5px}
+
+header{
+ text-align:center;
+ padding:18px 5px;
+}
+
 .logo{
- width:76px;height:76px;
+ width:76px;
+ height:76px;
  margin:auto;
  border:2px solid #00ff9d;
  border-radius:50%;
@@ -30,8 +41,16 @@ header{text-align:center;padding:18px 5px}
  font-size:35px;
  box-shadow:0 0 28px #00ff9d55;
 }
-h1{font-size:24px;margin:14px 0 5px}
-.sub{color:#8592a6;font-size:13px}
+
+h1{
+ font-size:24px;
+ margin:14px 0 5px;
+}
+
+.sub{
+ color:#8592a6;
+ font-size:13px;
+}
 
 .card{
  background:#0a111e;
@@ -40,12 +59,14 @@ h1{font-size:24px;margin:14px 0 5px}
  padding:18px;
  margin-top:16px;
 }
+
 .title{
  font-size:16px;
  font-weight:bold;
  margin-bottom:12px;
  color:#00ff9d;
 }
+
 textarea,input{
  width:100%;
  background:#050a13;
@@ -57,10 +78,12 @@ textarea,input{
  font-size:14px;
  margin-bottom:10px;
 }
+
 textarea{
  min-height:110px;
  resize:vertical;
 }
+
 button{
  width:100%;
  border:0;
@@ -71,12 +94,17 @@ button{
  font-weight:bold;
  background:#00ff9d;
  color:#00140c;
+ cursor:pointer;
 }
+
 .secondary{
  background:#182437;
  color:#fff;
 }
-button:active{transform:scale(.99)}
+
+button:active{
+ transform:scale(.99);
+}
 
 .status{
  text-align:center;
@@ -84,24 +112,60 @@ button:active{transform:scale(.99)}
  font-size:12px;
  margin-top:12px;
  min-height:18px;
+ overflow-wrap:anywhere;
 }
+
 .developer{
  text-align:center;
- color:#748197;
- font-size:11px;
- line-height:1.7;
- margin:24px 0;
+ color:#8592a6;
+ font-size:12px;
+ line-height:1.8;
+ margin:24px 0 16px;
 }
+
 .developer strong{
  color:#fff;
- font-size:14px;
+ font-size:15px;
 }
+
+.disclaimer{
+ background:#0a111e;
+ border:1px solid #745d27;
+ border-radius:14px;
+ padding:16px;
+ margin-top:16px;
+ color:#c4ccda;
+ font-size:12px;
+ line-height:1.8;
+ overflow-wrap:anywhere;
+}
+
+.disclaimer h2{
+ color:#ffd166;
+ font-size:15px;
+ margin:0 0 8px;
+}
+
 .note{
- color:#59677b;
+ color:#8592a6;
  text-align:center;
+ font-size:11px;
+ line-height:1.7;
+ margin:18px 0 12px;
+}
+
+.footer{
+ text-align:center;
+ color:#59677b;
  font-size:10px;
- line-height:1.6;
- margin-bottom:20px;
+ line-height:1.7;
+ margin:16px 0;
+}
+
+@media(max-width:360px){
+ .app{padding:12px}
+ .card{padding:14px}
+ h1{font-size:22px}
 }
 </style>
 </head>
@@ -116,33 +180,44 @@ button:active{transform:scale(.99)}
  <div class="sub">AES-GCM Message Encryption</div>
 </header>
 
+
+<!-- ENCRYPT MESSAGE -->
+
 <div class="card">
 
  <div class="title">🔒 ENCRYPT MESSAGE</div>
 
- <textarea id="plain"
- placeholder="এখানে গোপন বার্তা লিখুন..."></textarea>
+ <textarea
+ id="plain"
+ placeholder="এখানে গোপন বার্তা লিখুন..."
+ aria-label="Message to encrypt"></textarea>
 
  <input
  id="key"
  type="password"
- placeholder="Encryption Key লিখুন">
+ autocomplete="new-password"
+ placeholder="Encryption Key লিখুন"
+ aria-label="Encryption key">
 
- <button onclick="encryptMessage()">
+ <button type="button" onclick="encryptMessage()">
  🔐 ENCRYPT
  </button>
 
  <textarea
  id="encrypted"
  readonly
- placeholder="Encrypted message এখানে আসবে..."></textarea>
+ placeholder="Encrypted message এখানে আসবে..."
+ aria-label="Encrypted message"></textarea>
 
- <button class="secondary" onclick="copyText('encrypted')">
+ <button type="button" class="secondary"
+ onclick="copyText('encrypted')">
  📋 COPY ENCRYPTED TEXT
  </button>
 
 </div>
 
+
+<!-- DECRYPT MESSAGE -->
 
 <div class="card">
 
@@ -150,50 +225,38 @@ button:active{transform:scale(.99)}
 
  <textarea
  id="cipher"
- placeholder="Encrypted message এখানে দিন..."></textarea>
+ placeholder="Encrypted message এখানে দিন..."
+ aria-label="Encrypted text to decrypt"></textarea>
 
  <input
  id="decryptKey"
  type="password"
- placeholder="সঠিক Encryption Key লিখুন">
+ autocomplete="new-password"
+ placeholder="সঠিক Encryption Key লিখুন"
+ aria-label="Decryption key">
 
- <button onclick="decryptMessage()">
+ <button type="button" onclick="decryptMessage()">
  🔓 DECRYPT
  </button>
 
  <textarea
  id="decrypted"
  readonly
- placeholder="Decrypted message এখানে আসবে..."></textarea>
+ placeholder="Decrypted message এখানে আসবে..."
+ aria-label="Decrypted message"></textarea>
 
- <button class="secondary" onclick="copyText('decrypted')">
+ <button type="button" class="secondary"
+ onclick="copyText('decrypted')">
  📋 COPY DECRYPTED TEXT
  </button>
 
- <div class="status" id="status"></div>
+ <div class="status" id="status"
+ role="status" aria-live="polite"></div>
 
 </div>
 
 
-<div class="card">
-
- <div class="title">#️⃣ SHA-256 HASH</div>
-
- <textarea
- id="hashInput"
- placeholder="যেকোনো লেখা লিখুন..."></textarea>
-
- <button onclick="makeHash()">
- GENERATE SHA-256 HASH
- </button>
-
- <textarea
- id="hashOutput"
- readonly
- placeholder="SHA-256 hash এখানে আসবে..."></textarea>
-
-</div>
-
+<!-- DEVELOPER INFORMATION -->
 
 <div class="developer">
  Developed by<br>
@@ -203,10 +266,40 @@ button:active{transform:scale(.99)}
  Tarash, Sirajganj, Bangladesh
 </div>
 
+
+<!-- DISCLAIMER -->
+
+<section class="disclaimer" id="disclaimer">
+
+ <h2>DISCLAIMER</h2>
+
+ <p>
+ This tool is designed strictly for educational and lawful
+ privacy-protection purposes. The developer assumes no
+ responsibility or liability for misuse of this application
+ or for any illegal activities conducted using it, to the
+ extent permitted by applicable law.
+ </p>
+
+</section>
+
+
+<!-- PRIVACY AND SECURITY NOTE -->
+
 <div class="note">
- AES-GCM encryption is performed locally in your browser.
- Your message and key are not sent to a server by this page.
- Never share your encryption key publicly.
+ <strong>Privacy &amp; Security Note</strong><br>
+ Encryption and decryption are performed locally by this
+ page in a supported browser environment. This page's code
+ does not send your messages or encryption keys to a server.
+ Keep your encryption key private and secure.
+ <br><br>
+ Do not rely on this educational tool as the sole protection
+ for highly sensitive or critical information.
+</div>
+
+<div class="footer">
+ Secure Encryption Lab<br>
+ Educational Software • Use Responsibly
 </div>
 
 </div>
@@ -214,20 +307,45 @@ button:active{transform:scale(.99)}
 
 <script>
 
+"use strict";
+
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
 
 
-function toBase64(bytes){
- return btoa(
-   String.fromCharCode(...new Uint8Array(bytes))
+function setStatus(message){
+ document.getElementById("status").innerText = message;
+}
+
+
+function cryptoAvailable(){
+ return Boolean(
+   window.crypto &&
+   window.crypto.subtle &&
+   window.crypto.getRandomValues
  );
 }
 
 
+function toBase64(bytes){
+
+ let binary = "";
+ const data = new Uint8Array(bytes);
+
+ for(let i = 0; i < data.length; i++){
+   binary += String.fromCharCode(data[i]);
+ }
+
+ return btoa(binary);
+}
+
+
 function fromBase64(str){
+
+ const binary = atob(str);
+
  return Uint8Array.from(
-   atob(str),
+   binary,
    c => c.charCodeAt(0)
  );
 }
@@ -235,11 +353,10 @@ function fromBase64(str){
 
 async function makeKey(password){
 
- const hash =
-   await crypto.subtle.digest(
-     "SHA-256",
-     encoder.encode(password)
-   );
+ const hash = await crypto.subtle.digest(
+   "SHA-256",
+   encoder.encode(password)
+ );
 
  return crypto.subtle.importKey(
    "raw",
@@ -248,6 +365,8 @@ async function makeKey(password){
    false,
    ["encrypt","decrypt"]
  );
+
+
 }
 
 
@@ -262,46 +381,40 @@ async function encryptMessage(){
  const output =
    document.getElementById("encrypted");
 
- const status =
-   document.getElementById("status");
-
  if(!message || !password){
+   setStatus("⚠️ Message এবং Key দুটোই দিতে হবে।");
+   return;
+ }
 
-   status.innerText =
-     "⚠️ Message এবং Key দুটোই দিতে হবে।";
-
+ if(!cryptoAvailable()){
+   setStatus(
+     "❌ Web Crypto API পাওয়া যাচ্ছে না। HTTPS বা সমর্থিত নিরাপদ পরিবেশে চালান।"
+   );
    return;
  }
 
  try{
 
-   const key =
-     await makeKey(password);
+   const key = await makeKey(password);
 
-   const iv =
-     crypto.getRandomValues(
-       new Uint8Array(12)
-     );
+   const iv = crypto.getRandomValues(
+     new Uint8Array(12)
+   );
 
-   const encrypted =
-     await crypto.subtle.encrypt(
-       {
-         name:"AES-GCM",
-         iv:iv
-       },
-       key,
-       encoder.encode(message)
-     );
+   const encrypted = await crypto.subtle.encrypt(
+     {
+       name:"AES-GCM",
+       iv:iv
+     },
+     key,
+     encoder.encode(message)
+   );
 
-   /*
-    Format:
-    IV + encrypted data
-   */
+   // Format: 12-byte IV + encrypted data and authentication tag
 
-   const combined =
-     new Uint8Array(
-       iv.length + encrypted.byteLength
-     );
+   const combined = new Uint8Array(
+     iv.length + encrypted.byteLength
+   );
 
    combined.set(iv,0);
 
@@ -310,16 +423,14 @@ async function encryptMessage(){
      iv.length
    );
 
-   output.value =
-     toBase64(combined);
+   output.value = toBase64(combined);
 
-   status.innerText =
-     "✓ Message successfully encrypted.";
+   setStatus("✓ Message successfully encrypted.");
 
- }catch(e){
+ }catch(error){
 
-   status.innerText =
-     "Encryption failed.";
+   output.value = "";
+   setStatus("❌ Encryption failed. Please try again.");
 
  }
 
@@ -337,113 +448,98 @@ async function decryptMessage(){
  const output =
    document.getElementById("decrypted");
 
- const status =
-   document.getElementById("status");
-
  if(!cipherText || !password){
+   setStatus(
+     "⚠️ Encrypted text এবং Key দুটোই দিতে হবে।"
+   );
+   return;
+ }
 
-   status.innerText =
-     "⚠️ Encrypted text এবং Key দুটোই দিতে হবে.";
-
+ if(!cryptoAvailable()){
+   setStatus(
+     "❌ Web Crypto API পাওয়া যাচ্ছে না। HTTPS বা সমর্থিত নিরাপদ পরিবেশে চালান।"
+   );
    return;
  }
 
  try{
 
-   const combined =
-     fromBase64(cipherText);
+   const combined = fromBase64(cipherText);
 
-   const iv =
-     combined.slice(0,12);
+   if(combined.length < 29){
+     throw new Error("Invalid encrypted data");
+   }
 
-   const encrypted =
-     combined.slice(12);
+   const iv = combined.slice(0,12);
+   const encrypted = combined.slice(12);
 
-   const key =
-     await makeKey(password);
+   const key = await makeKey(password);
 
-   const decrypted =
-     await crypto.subtle.decrypt(
-       {
-         name:"AES-GCM",
-         iv:iv
-       },
-       key,
-       encrypted
-     );
-
-   output.value =
-     decoder.decode(decrypted);
-
-   status.innerText =
-     "✓ Message successfully decrypted.";
-
- }catch(e){
-
-   output.value="";
-
-   status.innerText =
-     "❌ ভুল Key অথবা encrypted data পরিবর্তিত হয়েছে।";
-
- }
-
-}
-
-
-async function makeHash(){
-
- const text =
-   document.getElementById("hashInput").value;
-
- if(!text){
-
-   document.getElementById("hashOutput").value="";
-   return;
-
- }
-
- const hash =
-   await crypto.subtle.digest(
-     "SHA-256",
-     encoder.encode(text)
+   const decrypted = await crypto.subtle.decrypt(
+     {
+       name:"AES-GCM",
+       iv:iv
+     },
+     key,
+     encrypted
    );
 
- const bytes =
-   new Uint8Array(hash);
+   output.value = decoder.decode(decrypted);
 
- const hex =
-   Array.from(bytes)
-   .map(b=>b.toString(16).padStart(2,"0"))
-   .join("");
+   setStatus("✓ Message successfully decrypted.");
 
- document.getElementById("hashOutput").value =
-   hex;
+ }catch(error){
+
+   output.value = "";
+
+   setStatus(
+     "❌ ভুল Key অথবা encrypted data অবৈধ বা পরিবর্তিত হয়েছে।"
+   );
+
+ }
+
 }
 
 
-function copyText(id){
+async function copyText(id){
 
- const el =
-   document.getElementById(id);
+ const el = document.getElementById(id);
 
- if(!el.value) return;
+ if(!el.value){
+   setStatus("⚠️ Copy করার মতো কোনো লেখা নেই।");
+   return;
+ }
 
- navigator.clipboard.writeText(el.value)
- .then(()=>{
+ try{
 
-   document.getElementById("status").innerText =
-     "✓ Copied to clipboard.";
+   if(navigator.clipboard && window.isSecureContext){
 
- })
- .catch(()=>{
+     await navigator.clipboard.writeText(el.value);
 
-   el.select();
-   document.execCommand("copy");
+   }else{
 
-   document.getElementById("status").innerText =
-     "✓ Copied.";
+     el.focus();
+     el.select();
+     el.setSelectionRange(0,el.value.length);
 
- });
+     const copied = document.execCommand("copy");
+
+     if(!copied){
+       throw new Error("Copy failed");
+     }
+
+   }
+
+   setStatus("✓ Copied to clipboard.");
+
+ }catch(error){
+
+   setStatus(
+     "❌ Copy করা যায়নি। লেখাটি নির্বাচন করে ম্যানুয়ালি Copy করুন।"
+   );
+
+ }
+
 }
 
 </script>
