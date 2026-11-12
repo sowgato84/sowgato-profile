@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSC Batch 1999 - Birthday Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: radial-gradient(circle at center, #1a1a2e 0%, #090910 100%);
+            color: #fff;
+            font-family: 'Hind Siliguri', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Terminal Loader Screen */
+        #terminal-screen {
+            background: rgba(0, 20, 10, 0.85);
+            border: 1px solid #00ff88;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.3);
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 420px;
+            width: 100%;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+        }
+        .term-line {
+            color: #00ff88;
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #112211;
+            border-radius: 4px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #00ff88;
+            box-shadow: 0 0 10px #00ff88;
+            transition: width 3.5s ease-in-out;
+        }
+
+        /* Birthday Celebration Card */
+        #celebration-screen {
+            display: none;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 40px rgba(255, 165, 0, 0.25);
+            padding: 35px 22px;
+            border-radius: 20px;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            animation: popUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff8c00, #ff0080);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(255, 0, 128, 0.4);
+        }
+        h1 {
+            font-size: 28px;
+            color: #ffd700;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        .names-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 4px solid #00f2fe;
+            border-right: 4px solid #4facfe;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 18px 0;
+        }
+        .friend-name {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(to right, #00f2fe, #4facfe, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 5px 0;
+        }
+        .msg {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+        .cake-btn {
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Hind Siliguri', sans-serif;
+            box-shadow: 0 5px 20px rgba(0, 114, 255, 0.5);
+            transition: transform 0.2s;
+        }
+        .cake-btn:active {
+            transform: scale(0.95);
+        }
+        .sender {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            font-size: 14px;
+            color: #aaa;
+        }
+        .sender strong {
+            color: #00ff88;
+            font-size: 16px;
+            display: block;
+            margin-top: 3px;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        @keyframes popUp {
+            0% { transform: scale(0.6); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="confetti"></canvas>
+
+    <!-- Step 1: Tech Loading Screen -->
+    <div id="terminal-screen">
+        <div class="term-line" style="animation-delay: 0.2s;">> Connecting to SSC_1999_Server... [OK]</div>
+        <div class="term-line" style="animation-delay: 0.9s;">> Verifying Batch Memories (27 Years)... [OK]</div>
+        <div class="term-line" style="animation-delay: 1.7s;">> Detecting Age Milestone: 44 Years Young!</div>
+        <div class="term-line" style="animation-delay: 2.5s; color: #ffd700;">> Unlocking Special Birthday Protocol...</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+    </div>
+
+    <!-- Step 2: Main Birthday Card -->
+    <div id="celebration-screen">
+        <div class="badge">SSC BATCH 1999 • LEVEL 44</div>
+        <h1>🎉 শুভ জন্মদিন বন্ধু! 🎂</h1>
+        
+        <div class="names-box">
+            <div class="friend-name">✨ নাকিবুল করিম ববি ✨</div>
+            <div style="font-size: 14px; color: #888;">এবং</div>
+            <div class="friend-name">✨ গোলাম রব্বানী ✨</div>
+        </div>
+
+        <p class="msg">
+            ৯৯ ব্যাচের সেই স্কুল জীবনের দিনগুলো থেকে আজ ৪৪-এ পা! বয়স বাড়লেও আমাদের বন্ধুত্ব সবসময় চিরসবুজ। তোমাদের আগামী দিনগুলো হোক সুস্থতা, আনন্দ আর সাফল্যে ভরা।
+        </p>
+
+        <button class="cake-btn" onclick="burstConfetti()">🎊 আরও আতশবাজি ফোটাও 🎊</button>
+
+        <div class="sender">
+            টেক-শুভেচ্ছান্তে তোমার বন্ধু:
+            <strong>সৌগত কুমার ভৌমিক</strong>
+        </div>
+    </div>
+
+    <script>
+        // Start loading animation
+        window.onload = function() {
+            setTimeout(() => {
+                document.getElementById('progress').style.width = '100%';
+            }, 100);
+
+            // Switch to birthday card after 3.8 seconds
+            setTimeout(() => {
+                document.getElementById('terminal-screen').style.display = 'none';
+                document.getElementById('celebration-screen').style.display = 'block';
+                startConfetti();
+            }, 3900);
+        };
+
+        // Confetti Animation Engine
+        const canvas = document.getElementById('confetti');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let pieces = [];
+        const colors = ['#ffd700', '#00ff88', '#00f2fe', '#ff0080', '#ff8c00', '#ffffff'];
+
+        function createPieces(count) {
+            for (let i = 0; i < count; i++) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    w: Math.random() * 10 + 5,
+                    h: Math.random() * 10 + 5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speedY: Math.random() * 3 + 2,
+                    speedX: Math.random() * 2 - 1,
+                    rotation: Math.random() * 360,
+                    rotSpeed: Math.random() * 6 - 3
+                });
+            }
+        }
+
+        function updateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            pieces.forEach((p, index) => {
+                p.y += p.speedY;
+                p.x += p.speedX;
+                p.rotation += p.rotSpeed;
+
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate(p.rotation * Math.PI / 180);
+                ctx.fillStyle = p.color;
+                ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                ctx.restore();
+
+                if (p.y > canvas.height) {
+                    p.y = -10;
+                    p.x = Math.random() * canvas.width;
+                }
+            });
+            requestAnimationFrame(updateConfetti);
+        }
+
+        function startConfetti() {
+            createPieces(100);
+            updateConfetti();
+        }
+
+        function burstConfetti() {
+            createPieces(60);
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
